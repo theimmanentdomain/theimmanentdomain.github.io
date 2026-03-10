@@ -1,0 +1,197 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #000;
+  --fg: #f6f4ef;
+  --muted: #bbb5aa;
+  --line: rgba(255, 255, 255, 0.16);
+  --line-strong: rgba(255, 255, 255, 0.3);
+  --reading-width: 42rem;
+  --hero-width: 64rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Times New Roman", Times, serif;
+  text-rendering: optimizeLegibility;
+}
+
+.page {
+  min-height: 100vh;
+}
+
+.hero {
+  min-height: 92vh;
+  padding: 12vh 1.5rem 8vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0;
+  max-width: var(--hero-width);
+  font-size: clamp(3rem, 9vw, 6.5rem);
+  line-height: 0.95;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.tagline {
+  margin: 1.25rem 0 0;
+  font-size: clamp(1.1rem, 2.3vw, 1.6rem);
+  font-style: italic;
+  letter-spacing: 0.04em;
+}
+
+.deck {
+  max-width: 36rem;
+  margin: 1.75rem auto 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.manifesto {
+  padding: 4rem 1.5rem 1rem;
+}
+
+.manifesto-section {
+  max-width: var(--reading-width);
+  margin: 0 auto;
+  padding: 2.5rem 0 3rem;
+  border-top: 1px solid var(--line);
+}
+
+.manifesto-section.opening {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.manifesto-section h2,
+.cta h2 {
+  margin: 0 0 1.2rem;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  line-height: 1.15;
+  text-align: center;
+  font-style: italic;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.manifesto-section p,
+.cta p {
+  margin: 0 0 1.15rem;
+  font-size: clamp(1.18rem, 1.15rem + 0.2vw, 1.35rem);
+  line-height: 1.72;
+}
+
+.symbols {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+}
+
+.symbols li {
+  position: relative;
+  padding-left: 1.6rem;
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.18rem, 1.15rem + 0.2vw, 1.35rem);
+  line-height: 1.55;
+}
+
+.symbols li::before {
+  content: "-";
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+}
+
+.closing-strike {
+  padding-bottom: 2rem;
+}
+
+.closing-line {
+  margin-top: 1.6rem;
+  text-align: center;
+  font-size: clamp(1.8rem, 3vw, 2.35rem);
+  font-style: italic;
+}
+
+.tagline.bottom {
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+.cta {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 6rem 1.5rem 8rem;
+  text-align: center;
+  border-top: 1px solid var(--line-strong);
+}
+
+.cta p {
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta a {
+  color: var(--fg);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.cta a:hover {
+  color: #fff;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: auto;
+    padding-top: 7rem;
+    padding-bottom: 5rem;
+  }
+
+  .manifesto {
+    padding-top: 2.5rem;
+  }
+
+  .manifesto-section {
+    padding-top: 2rem;
+    padding-bottom: 2.4rem;
+  }
+
+  .manifesto-section p,
+  .cta p,
+  .symbols li {
+    font-size: 1.08rem;
+    line-height: 1.68;
+  }
+
+  h1 {
+    letter-spacing: 0.01em;
+  }
+}
