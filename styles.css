@@ -1,0 +1,396 @@
+:root {
+  --bg: #090909;
+  --bg-soft: #111;
+  --fg: #f4f1ea;
+  --muted: #b8b2a8;
+  --line: rgba(244, 241, 234, 0.18);
+  --panel: #161616;
+  --panel-strong: #f4f1ea;
+  --panel-ink: #111;
+  --max: 1240px;
+  --gutter: clamp(1rem, 2vw, 2rem);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.45;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; filter: grayscale(100%) contrast(112%); }
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 20;
+  background: #fff;
+  color: #000;
+  padding: 0.5rem 0.75rem;
+}
+
+.site-header,
+.site-footer,
+.section-frame,
+.hero {
+  width: min(calc(100% - 2rem), var(--max));
+  margin: 0 auto;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0 0.5rem;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  background: rgba(9, 9, 9, 0.95);
+  backdrop-filter: blur(8px);
+  z-index: 10;
+}
+
+.brandline,
+.section-kicker,
+.issue-meta,
+.eyebrow,
+.stamp,
+.archive-row span:last-child,
+.small-note,
+.roman {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.72rem;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.9rem;
+}
+
+.site-nav a {
+  padding: 0.2rem 0;
+  border-bottom: 1px solid transparent;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  border-color: var(--fg);
+}
+
+.hero {
+  padding: 4.5rem 0 1.5rem;
+}
+
+.eyebrow {
+  color: var(--muted);
+  margin: 0 0 1rem;
+}
+
+h1,
+.section-header h2,
+.manifesto-block h3,
+.issue-card h3,
+.transmission-box h3,
+.contact-panel h2 {
+  margin: 0;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(4.5rem, 13vw, 10rem);
+  line-height: 0.9;
+  max-width: 10ch;
+  letter-spacing: 0.02em;
+}
+
+.hero-declaration {
+  font-size: clamp(1.15rem, 2vw, 1.6rem);
+  max-width: 42rem;
+  margin: 1rem 0 0;
+  color: var(--muted);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr 0.8fr;
+  gap: var(--gutter);
+  margin-top: 2rem;
+  align-items: stretch;
+}
+
+.hero-card,
+.manifesto-block,
+.issue-card,
+.transmission-box,
+.contact-panel {
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.hero-card-text,
+.manifesto-block,
+.issue-card,
+.transmission-box,
+.contact-panel {
+  padding: 1.15rem;
+}
+
+.hero-card-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+}
+
+.hero-card-text p {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.hero-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-card.tall img { min-height: 100%; }
+
+.section-frame {
+  padding: 2.5rem 0 0;
+}
+
+.section-header {
+  display: grid;
+  grid-template-columns: 0.9fr 1.4fr;
+  gap: var(--gutter);
+  align-items: end;
+  margin-bottom: 1.25rem;
+  border-top: 1px solid var(--line);
+  padding-top: 0.75rem;
+}
+
+.section-header.narrow {
+  grid-template-columns: 0.9fr 1.1fr;
+}
+
+.section-header h2 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(2.4rem, 7vw, 5rem);
+  line-height: 0.95;
+}
+
+.section-intro {
+  grid-column: 2;
+  max-width: 44rem;
+  color: var(--muted);
+  margin: 0.5rem 0 0;
+}
+
+.manifesto-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--gutter);
+}
+
+.manifesto-block {
+  min-height: 17rem;
+  position: relative;
+}
+
+.manifesto-block .roman {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  color: var(--muted);
+}
+
+.manifesto-block h3,
+.issue-card h3,
+.transmission-box h3 {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 2rem;
+  line-height: 0.95;
+  margin-bottom: 0.7rem;
+}
+
+.manifesto-block p,
+.manifesto-block li,
+.issue-card p,
+.transmission-box p,
+.about-copy p,
+.contact-panel p {
+  font-size: 1rem;
+}
+
+.manifesto-block ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.pull {
+  margin-top: 0.9rem;
+  padding: 0.5rem 0.55rem;
+  background: var(--panel-strong);
+  color: var(--panel-ink);
+  display: inline-block;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.mag-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1fr;
+  gap: var(--gutter);
+  align-items: start;
+}
+
+.featured-issue {
+  background: var(--panel-strong);
+  color: var(--panel-ink);
+}
+
+.image-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 1rem;
+  background: var(--fg);
+  color: #000;
+  padding: 0.7rem 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.button-secondary {
+  background: transparent;
+  color: var(--fg);
+  border: 1px solid var(--line);
+}
+
+.transmission-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr 0.8fr;
+  gap: var(--gutter);
+}
+
+.quote-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.large-quote {
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.inverse {
+  background: var(--panel-strong);
+  color: var(--panel-ink);
+}
+
+.about-copy {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--gutter);
+  max-width: 72rem;
+}
+
+.archive-list {
+  border-top: 1px solid var(--line);
+}
+
+.archive-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.archive-row:hover,
+.archive-row:focus-visible {
+  background: rgba(255,255,255,0.03);
+}
+
+.archive-row.placeholder {
+  color: var(--muted);
+}
+
+.contact-panel {
+  max-width: 38rem;
+}
+
+.contact-link {
+  display: inline-block;
+  margin: 0.5rem 0 0.35rem;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  line-height: 1;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.site-footer {
+  padding: 2rem 0 3rem;
+  color: var(--muted);
+}
+
+@media (max-width: 980px) {
+  .site-header {
+    position: static;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-grid,
+  .manifesto-grid,
+  .mag-grid,
+  .transmission-grid,
+  .about-copy,
+  .section-header,
+  .section-header.narrow {
+    grid-template-columns: 1fr;
+  }
+
+  .section-intro { grid-column: auto; }
+
+  .hero-card-image img {
+    max-height: 32rem;
+  }
+}
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .hero { padding-top: 2rem; }
+  .section-frame { padding-top: 2rem; }
+  .site-header,
+  .site-footer,
+  .section-frame,
+  .hero { width: min(calc(100% - 1.2rem), var(--max)); }
+  .site-nav { gap: 0.6rem 0.9rem; }
+  .manifesto-block,
+  .issue-card,
+  .transmission-box,
+  .contact-panel,
+  .hero-card-text { padding: 0.95rem; }
+}
